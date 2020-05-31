@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/28 23:11:07 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/09 19:10:55 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/05/31 17:02:03 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,7 @@
 
 void	ft_putstr_fd(char *s, int fd)
 {
-	int i;
 
-	i = 0;
-	while (s && s[i])
-	{
-		ft_putchar_fd(s[i], fd);
-		i++;
-	}
+	if (s && fd >= 0)
+		write(fd, s, ft_strlen(s));
 }

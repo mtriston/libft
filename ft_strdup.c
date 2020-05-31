@@ -15,16 +15,9 @@
 char			*ft_strdup(char const *s)
 {
 	char	*dest;
-	int		i;
 
 	if (!(dest = (char *)malloc((ft_strlen(s) + 1) * sizeof(char))))
 		return (NULL);
-	i = 0;
-	while (s[i])
-	{
-		dest[i] = s[i];
-		i++;
-	}
-	dest[i] = '\0';
+	dest = ft_strcpy(dest, s);
 	return (dest);
 }
