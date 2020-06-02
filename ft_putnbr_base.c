@@ -6,20 +6,14 @@
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 17:20:11 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/02 23:47:36 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/06/03 00:17:32 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-static void	print_nbr(int nbr, char *base, int base_length)
+static void	print_nbr(size_t nbr, char *base, size_t base_length)
 {
-	if (nbr < 0)
-	{
-		ft_putchar_fd('-', 1);
-		print_nbr(nbr / (-base_length), base, base_length);
-		ft_putchar_fd(base[nbr % base_length * (-1)], 1);
-	}
 	if (nbr >= base_length)
 	{
 		print_nbr(nbr / base_length, base, base_length);
@@ -39,9 +33,9 @@ static int	check_base(char *base)
 	return ((*base == '\0') ? 1 : 0);
 }
 
-void		ft_putnbr_base(int nbr, char *base)
+void		ft_putnbr_base(size_t nbr, char *base)
 {
-	int base_length;
+	size_t base_length;
 	
 	if (base && check_base(base))
 	{
