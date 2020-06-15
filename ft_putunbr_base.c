@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putnbr_base.c                                   :+:      :+:    :+:   */
+/*   ft_putunbr_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 17:20:11 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/03 00:17:32 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/06/03 22:51:09 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,12 +28,12 @@ static int	check_base(char *base)
 	char c;
 
 	c = *base;
-	while (*base && !(ft_strchr(++base, c)))
+	while (*base && ft_isprint(*base) && !(ft_strchr(++base, c)))
 		c = *base;
 	return ((*base == '\0') ? 1 : 0);
 }
 
-void		ft_putnbr_base(size_t nbr, char *base)
+void		ft_putunbr_base(size_t nbr, char *base)
 {
 	size_t base_length;
 	
@@ -41,8 +41,6 @@ void		ft_putnbr_base(size_t nbr, char *base)
 	{
 		base_length = ft_strlen(base);
 		if (base_length > 1)
-		{
 			print_nbr(nbr, base, base_length);
-		}
 	}
 }

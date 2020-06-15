@@ -1,25 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_strcpy.c                                        :+:      :+:    :+:   */
+/*   ft_convert_base.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/06 20:30:40 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/06 20:31:00 by mtriston         ###   ########.fr       */
+/*   Created: 2020/06/01 16:34:40 by mtriston          #+#    #+#             */
+/*   Updated: 2020/06/01 17:18:19 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-char	*ft_strcpy(char *dest, const char *src)
-{
-	int i;
 
-	i = 0;
-	while (src[i])
-	{
-		dest[i] = src[i];
-		i++;
-	}
-	dest[i] = '\0';
-	return (dest);
+
+char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+{
+
 }
