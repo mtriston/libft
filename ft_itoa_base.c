@@ -6,7 +6,7 @@
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 13:28:35 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/14 22:20:14 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/06/24 17:25:47 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 static size_t	ft_nbrlen(ptrdiff_t n, int base)
 {
 	size_t i;
-	
+
 	i = (n == 0 || n < 0) ? 1 : 0;
 	while (n != 0)
 	{
@@ -25,7 +25,7 @@ static size_t	ft_nbrlen(ptrdiff_t n, int base)
 	return (i);
 }
 
-static int	check_base(char *base)
+static int		check_base(char *base)
 {
 	char c;
 
@@ -35,7 +35,7 @@ static int	check_base(char *base)
 	return (*base == '\0' ? 1 : 0);
 }
 
-static void	write_number(char *dest, size_t n, char *base, size_t base_len)
+static void		write_number(char *dest, size_t n, char *base, size_t base_len)
 {
 	if (n >= base_len)
 	{
@@ -46,7 +46,7 @@ static void	write_number(char *dest, size_t n, char *base, size_t base_len)
 		*dest = base[n % base_len];
 }
 
-char		*ft_itoa_base(ptrdiff_t n, char *base)
+char			*ft_itoa_base(ptrdiff_t n, char *base)
 {
 	char	*str;
 	size_t	nbr_len;

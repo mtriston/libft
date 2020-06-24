@@ -6,7 +6,7 @@
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/01 17:20:11 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/03 22:51:09 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/06/24 17:21:58 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ static int	check_base(char *base)
 void		ft_putunbr_base(size_t nbr, char *base)
 {
 	size_t base_length;
-	
+
 	if (base && check_base(base))
 	{
 		base_length = ft_strlen(base);

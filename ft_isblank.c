@@ -1,18 +1,19 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_convert_base.c                                  :+:      :+:    :+:   */
+/*   ft_isblank.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2020/06/01 16:34:40 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/01 17:18:19 by mtriston         ###   ########.fr       */
+/*   Created: 2020/06/15 19:21:41 by mtriston          #+#    #+#             */
+/*   Updated: 2020/06/15 19:23:40 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-
-
-char	*ft_convert_base(char *nbr, char *base_from, char *base_to)
+int		ft_isblank(int c)
 {
-
+	if (c == ' ' || c == '\t')
+		return (1);
+	else
+		return (0);
 }
