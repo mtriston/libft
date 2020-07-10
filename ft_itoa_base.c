@@ -6,7 +6,7 @@
 /*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 13:28:35 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/24 17:25:47 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/06/28 13:46:37 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,8 @@ char			*ft_itoa_base(ptrdiff_t n, char *base)
 	size_t	base_len;
 	size_t	temp;
 
-	if (!base || (base_len = ft_strlen(base)) < 2 || !check_base(base))
+	base_len = ft_strlen(base);
+	if (!base || base_len < 2 || !check_base(base))
 		return (NULL);
 	nbr_len = ft_nbrlen(n, base_len);
 	if (!(str = (char*)malloc((nbr_len + 1) * sizeof(char))))
