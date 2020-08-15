@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/24 17:22:23 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/15 16:04:24 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,10 @@
 # include <stdlib.h>
 # include <unistd.h>
 # include <stddef.h>
+
+#define ADD 1
+#define REMOVE 0
+#define BUFFER_SIZE 30
 
 typedef struct		s_list
 {
@@ -74,5 +78,12 @@ void				ft_lstclear(t_list **lst, void (*del)(void*));
 void				ft_lstiter(t_list *lst, void (*f)(void *));
 t_list				*ft_lstmap(t_list *lst, void *(*f)(void *), \
 											void (*del)(void *));
+void				ft_lst_remove_if(t_list **root, void *data, \
+									int (*cmp)(), void (*del)());
+void				memory_manager(void *ptr, int action);
+void				free_gc(void *ptr);
+void				*malloc_gc(size_t size);
+void				*calloc_gc(size_t nmemb, size_t size);
+int					get_next_line(int fd, char **line);
 
 #endif

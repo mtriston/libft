@@ -1,47 +1,133 @@
-NCOM_COLOR   = \033[0;34m
+COM_COLOR   = \033[0;34m
 OBJ_COLOR   = \033[0;36m
 OK_COLOR    = \033[0;32m
 ERROR_COLOR = \033[0;31m
 WARN_COLOR  = \033[0;33m
 NO_COLOR    = \033[m
 
-OK_STRING    = [OK]
+OK_STRING    = [OK]     
 ERROR_STRING = [ERROR]
 WARN_STRING  = [WARNING]
 COM_STRING   = Compiling
 
 NAME = libft.a
 
-FLAGS = -Wall -Werror -Wextra
+SRC_DIR = src/
+OBJ_DIR = bin/
+HDR_DIR = includes/
 
-SRC = ft_memset.c ft_bzero.c ft_memcpy.c ft_memccpy.c ft_memmove.c ft_memchr.c \
-ft_memcmp.c ft_strlen.c ft_strcpy.c ft_strlcpy.c ft_strlcat.c ft_strchr.c ft_strrchr.c \
-ft_strnstr.c ft_strncmp.c ft_atoi.c ft_atoi_base.c ft_isblank.c ft_isspace.c ft_isalpha.c ft_isdigit.c ft_isalnum.c \
-ft_isascii.c ft_isprint.c ft_toupper.c ft_tolower.c ft_calloc.c ft_strdup.c\
-ft_substr.c ft_strjoin.c ft_strtrim.c ft_split.c ft_itoa.c ft_itoa_base.c ft_strmapi.c \
-ft_putchar_fd.c ft_putstr_fd.c ft_putendl_fd.c ft_putnbr_fd.c ft_putunbr_base.c
+INCLUDES = -I$(HDR_DIR)
 
-OBJ = $(SRC:.c=.o)
+CC = gcc
+FLAGS = -Wall -Werror -Wextra -g
 
-BONUS_SRC = ft_lstnew.c ft_lstadd_front.c ft_lstsize.c ft_lstadd_back.c \
-ft_lstdelone.c ft_lstclear.c ft_lstiter.c ft_lstmap.c ft_lstlast.c
+CHAR_DIR = char/
+CHAR_FILES = $(addsuffix .c, $(addprefix $(CHAR_DIR),\
+			ft_isblank\
+            ft_isspace\
+			ft_isalpha\
+			ft_isdigit\
+			ft_isalnum\
+			ft_isascii\
+			ft_isprint\
+			ft_toupper\
+			ft_tolower\
+			))
 
-BONUS_OBJ = $(BONUS_SRC:.c=.o)
+GC_DIR = garbage_collector/
+GC_FILES = 	$(addsuffix .c, $(addprefix $(GC_DIR),\
+			free_gc\
+			malloc_gc\
+			memory_manager\
+			))
+
+LST_DIR = linked_list/
+LST_FILES = $(addsuffix .c, $(addprefix $(LST_DIR),\
+			ft_lstnew\
+			ft_lstadd_front\
+			ft_lstsize\
+			ft_lstadd_back\
+			ft_lstdelone\
+			ft_lstclear\
+			ft_lstiter\
+			ft_lstmap\
+			ft_lstlast\
+			))
+
+MEM_DIR = mem/
+MEM_FILES = $(addsuffix .c, $(addprefix $(MEM_DIR),\
+			ft_memset\
+			ft_bzero\
+			ft_memcpy\
+			ft_memccpy\
+			ft_memmove\
+			ft_memchr\
+			ft_memcmp\
+			ft_calloc\
+			))
+
+NBR_DIR = nbr/
+NBR_FILES = $(addsuffix .c, $(addprefix $(NBR_DIR),\
+			ft_atoi\
+			ft_atoi_base\
+			ft_itoa\
+			ft_itoa_base\
+			))
+
+PRINT_DIR = print/
+PRINT_FILES =	$(addsuffix .c, $(addprefix $(PRINT_DIR),\
+				ft_putchar_fd\
+				ft_putstr_fd\
+				ft_putendl_fd\
+				ft_putnbr_fd\
+				))
+
+STR_DIR = str/
+STR_FILES =	$(addsuffix .c, $(addprefix $(STR_DIR),\
+			ft_strlen\
+			ft_strcpy\
+			ft_strlcpy\
+			ft_strlcat\
+			ft_strchr\
+			ft_strrchr\
+			ft_strnstr\
+			ft_strncmp\
+			ft_strdup\
+			ft_substr\
+			ft_strjoin\
+			ft_strtrim\
+			ft_split\
+			ft_strmapi\
+			))
+
+GNL_DIR = get_next_line/
+GNL_FILES = $(addsuffix .c, $(addprefix $(GNL_DIR),\
+			get_next_line\
+			))
+
+SRC_FILES = $(CHAR_FILES) $(GC_FILES) $(LST_FILES) $(MEM_FILES) $(NBR_FILES) $(PRINT_FILES) $(STR_FILES) $(GNL_FILES)
+
+OBJ_FILES = $(addprefix $(OBJ_DIR), $(SRC_FILES:.c=.o))
 
 HEADER = libft.h
 
-all: $(NAME)
+all: $(OBJ_DIR) $(NAME)
 
-$(NAME): $(OBJ) $(HEADER)
-	@ar rc $(NAME) $(OBJ)
+$(NAME): $(OBJ_FILES) $(HEADER)
+	@ar rc $(NAME) $(OBJ_FILES)
 	@ranlib $(NAME)
 	@echo "$(OK_COLOR) $(OK_STRING) $(OBJ_COLOR) $(NAME) $(NO_COLOR)"
-.c.o:
-	@gcc $(FLAGS) -c $<
+
+$(OBJ_FILES): $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADER)
+	@$(CC) $(FLAGS) -c $< -o $@
 	@echo "$(COM_COLOR) $(COM_STRING) $(OBJ_COLOR) $(@) $(NO_COLOR)"
 
+$(OBJ_DIR):
+	mkdir $(OBJ_DIR)
+	mkdir $(addprefix $(OBJ_DIR), $(CHAR_DIR) $(GC_DIR) $(LST_DIR) $(MEM_DIR) $(NBR_DIR) $(PRINT_DIR) $(STR_DIR) $(GNL_DIR))
+
 clean:
-	@rm -f $(OBJ) $(BONUS_OBJ)
+	@rm -rf $(OBJ_DIR)
 	@echo "$(WARN_COLOR) All object files have been removed $(NO_COLOR)"
 
 fclean: clean
@@ -49,8 +135,3 @@ fclean: clean
 	@echo "$(WARN_COLOR) $(NAME) has been removed $(NO_COLOR)"
 
 re: fclean all
-
-bonus: $(NAME) $(BONUS_OBJ)
-	@ar rc $(NAME) $(BONUS_OBJ)
-	@ranlib $(NAME)
-	@echo "$(OK_COLOR) $(OK_STRING) $(OBJ_COLOR) $(NAME) $(NO_COLOR) with bonus part"
