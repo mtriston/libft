@@ -52,6 +52,7 @@ LST_FILES = $(addsuffix .c, $(addprefix $(LST_DIR),\
 			ft_lstiter\
 			ft_lstmap\
 			ft_lstlast\
+			ft_lst_remove_if\
 			))
 
 MEM_DIR = mem/
