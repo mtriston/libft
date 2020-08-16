@@ -73,6 +73,7 @@ NBR_FILES = $(addsuffix .c, $(addprefix $(NBR_DIR),\
 			ft_atoi_base\
 			ft_itoa\
 			ft_itoa_base\
+			ft_max\
 			))
 
 PRINT_DIR = print/

@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/15 16:04:24 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/16 15:38:57 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,6 +54,7 @@ int					ft_toupper(int c);
 int					ft_tolower(int c);
 int					ft_isblank(int c);
 int					ft_isspace(int c);
+double				ft_max(double x, double y);
 char				*ft_strdup(char const *s);
 void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
