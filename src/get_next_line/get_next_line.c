@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 16:16:14 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/15 17:15:43 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:58:45 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ int			get_next_line(int fd, char **line)
 		temp = *line;
 		if (!(*line = ft_strjoin(*line, buf)))
 			return (-1);
-		free(temp);
+		free_gc(temp);
 	}
 	if (read_bytes == -1)
 		return (-1);

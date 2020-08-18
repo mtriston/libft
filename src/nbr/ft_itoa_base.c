@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   ft_itoa_base.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: mtriston <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/06/06 13:28:35 by mtriston          #+#    #+#             */
-/*   Updated: 2020/06/28 13:46:37 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:59:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ char			*ft_itoa_base(ptrdiff_t n, char *base)
 	if (!base || base_len < 2 || !check_base(base))
 		return (NULL);
 	nbr_len = ft_nbrlen(n, base_len);
-	if (!(str = (char*)malloc((nbr_len + 1) * sizeof(char))))
+	if (!(str = (char*)malloc_gc((nbr_len + 1) * sizeof(char))))
 		return (NULL);
 	str[nbr_len] = '\0';
 	if (n < 0)

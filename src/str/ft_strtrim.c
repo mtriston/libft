@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:08:21 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/15 11:20:53 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:59:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,7 +43,7 @@ char			*ft_strtrim(char const *s1, char const *set)
 	len = ft_strlen(s1);
 	while (len && check_set(s1 + len - 1, set, set_len))
 		len--;
-	if (!(str = (char *)malloc((len + 1) * sizeof(char))))
+	if (!(str = (char *)malloc_gc((len + 1) * sizeof(char))))
 		return (NULL);
 	ft_strlcpy(str, s1, len + 1);
 	return (str);

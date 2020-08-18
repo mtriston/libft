@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 23:08:05 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/09 19:34:41 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:59:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ char			*ft_strjoin(char const *s1, char const *s2)
 		return (NULL);
 	len = ft_strlen(s1) + ft_strlen(s2) + 1;
 	i = 0;
-	if (!(new_str = (char *)malloc(len * sizeof(char))))
+	if (!(new_str = (char *)malloc_gc(len * sizeof(char))))
 		return (NULL);
 	while (*s1)
 		new_str[i++] = *s1++;

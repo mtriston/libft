@@ -6,14 +6,14 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/16 15:37:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/16 15:37:39 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 23:01:14 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-double ft_max(double x, double y)
+double	ft_max(double x, double y)
 {
-    if (x > y)
-        return (x);
-    else
-        return (y);
+	if (x > y)
+		return (x);
+	else
+		return (y);
 }

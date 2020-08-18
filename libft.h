@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/16 15:38:57 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 23:13:46 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,9 +17,9 @@
 # include <unistd.h>
 # include <stddef.h>
 
-#define ADD 1
-#define REMOVE 0
-#define BUFFER_SIZE 30
+# define ADD 1
+# define REMOVE 0
+# define BUFFER_SIZE 30
 
 typedef struct		s_list
 {

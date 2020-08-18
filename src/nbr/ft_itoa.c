@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/04/27 19:23:48 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/09 14:50:19 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:59:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ char		*ft_itoa(int n)
 		num /= 10;
 		i++;
 	}
-	if (!(str = (char*)malloc((i + 1) * sizeof(char))))
+	if (!(str = (char*)malloc_gc((i + 1) * sizeof(char))))
 		return (0);
 	if (n < 0)
 	{

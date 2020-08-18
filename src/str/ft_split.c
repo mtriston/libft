@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/04 13:48:24 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/15 11:14:19 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/08/18 22:59:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,14 +42,14 @@ static int	count_len(char const *str, char c)
 	return (i);
 }
 
-static void	*ft_free(char **tab)
+static void	*ft_free_gc(char **tab)
 {
 	int i;
 
 	i = 0;
 	while (tab[i] != NULL)
-		free(tab[i++]);
-	free(tab);
+		free_gc(tab[i++]);
+	free_gc(tab);
 	return (NULL);
 }
 
@@ -65,7 +65,7 @@ char		**ft_split(char const *s, char c)
 	i = 0;
 	j = 0;
 	word_count = count_words(s, c);
-	if (!s || !(array = (char **)malloc((word_count + 1) * sizeof(char *))))
+	if (!s || !(array = (char **)malloc_gc((word_count + 1) * sizeof(char *))))
 		return (NULL);
 	while (j < word_count)
 	{
@@ -73,7 +73,7 @@ char		**ft_split(char const *s, char c)
 		if (i > 0)
 		{
 			if (!(array[j++] = ft_substr(str, 0, i)))
-				return (ft_free(array));
+				return (ft_free_gc(array));
 		}
 		i++;
 		str += i;
