@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/18 23:13:46 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/10 21:45:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@
 
 # define ADD 1
 # define REMOVE 0
-# define BUFFER_SIZE 30
+# define BUFFER_SIZE 10
 
 typedef struct		s_list
 {
@@ -43,6 +43,7 @@ char				*ft_strrchr(const char *s, int c);
 char				*ft_strnstr(const char *big, const char *little, \
 															size_t len);
 int					ft_strncmp(const char *s1, const char *s2, size_t n);
+int					ft_strcmp(const char *s1, const char *s2);
 int					ft_atoi(const char *nptr);
 int					ft_atoi_base(const char *nptr, char *base);
 int					ft_isalpha(int c);

@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/02 18:42:10 by mtriston          #+#    #+#             */
-/*   Updated: 2020/05/05 21:41:43 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/10 21:45:06 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ size_t			ft_strlcpy(char *dst, const char *src, size_t size)
 	size_t i;
 
 	i = 0;
+	if (!dst || !src)
+		return (0);
 	if (size > 0)
 	{
 		while (i < size - 1 && src[i])

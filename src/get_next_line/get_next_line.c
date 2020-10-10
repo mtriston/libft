@@ -23,7 +23,7 @@ static int	check_over(char *over, char **new_line_ptr, char **line)
 		**new_line_ptr = '\0';
 		if (!(*line = ft_strdup(over)))
 			return (-1);
-		over = ft_strcpy(over, ++(*new_line_ptr));
+		ft_strcpy(over, ++(*new_line_ptr));
 	}
 	else
 	{
@@ -43,6 +43,7 @@ int			get_next_line(int fd, char **line)
 	char		*temp;
 	int			read_bytes;
 
+	read_bytes = 1;
 	if (BUFFER_SIZE < 1 || fd < 0 || !line || (read(fd, buf, 0) != 0) || \
 	!(check_over(over, &new_line_ptr, line)))
 		return (-1);
@@ -59,7 +60,5 @@ int			get_next_line(int fd, char **line)
 			return (-1);
 		free_gc(temp);
 	}
-	if (read_bytes == -1)
-		return (-1);
-	return ((ft_strlen(over) || read_bytes) ? 1 : 0);
+	return ((ft_strlen(over) || read_bytes > 0) ? 1 : read_bytes);
 }

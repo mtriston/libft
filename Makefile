@@ -125,8 +125,8 @@ $(OBJ_FILES): $(OBJ_DIR)%.o : $(SRC_DIR)%.c $(HEADER)
 	@echo "$(COM_COLOR) $(COM_STRING) $(OBJ_COLOR) $(@) $(NO_COLOR)"
 
 $(OBJ_DIR):
-	mkdir $(OBJ_DIR)
-	mkdir $(addprefix $(OBJ_DIR), $(CHAR_DIR) $(GC_DIR) $(LST_DIR) $(MEM_DIR) $(NBR_DIR) $(PRINT_DIR) $(STR_DIR) $(GNL_DIR))
+	@mkdir $(OBJ_DIR)
+	@mkdir $(addprefix $(OBJ_DIR), $(CHAR_DIR) $(GC_DIR) $(LST_DIR) $(MEM_DIR) $(NBR_DIR) $(PRINT_DIR) $(STR_DIR) $(GNL_DIR))
 
 clean:
 	@rm -rf $(OBJ_DIR)
