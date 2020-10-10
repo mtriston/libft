@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/10/10 21:45:06 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/10 21:45:17 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void				*ft_calloc(size_t nmemb, size_t size);
 char				*ft_substr(char const *s, unsigned int start, size_t len);
 char				*ft_strjoin(char const *s1, char const *s2);
 char				*ft_strtrim(char const *s1, char const *set);
-char				**ft_split(char const *s, char c);
+char				**ft_split(char const *s, char *c);
 char				*ft_itoa(int n);
 char				*ft_itoa_base(ptrdiff_t n, char *base);
 char				*ft_strmapi(char const *s, char (*f)(unsigned int, char));
