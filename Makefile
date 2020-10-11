@@ -94,6 +94,7 @@ STR_FILES =	$(addsuffix .c, $(addprefix $(STR_DIR),\
 			ft_strrchr\
 			ft_strnstr\
 			ft_strncmp\
+			ft_strcmp\
 			ft_strdup\
 			ft_substr\
 			ft_strjoin\
