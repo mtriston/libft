@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/08/14 23:32:18 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/26 00:13:45 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/15 23:20:17 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +57,7 @@ static void		gc_lstremove(t_list **root, void *data)
 	t_list	*temp;
 	int		i;
 
-	while (data == (*root)->content)
+	while (*root && (data == (*root)->content))
 	{
 		temp = (*root)->next;
 		gc_lstdelone(*root, free);
