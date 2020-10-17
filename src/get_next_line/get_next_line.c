@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 16:16:14 by mtriston          #+#    #+#             */
-/*   Updated: 2020/08/18 22:58:45 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/17 17:46:00 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 static int	check_over(char *over, char **new_line_ptr, char **line)
 {
-	int i;
+	int		i;
+	char	*temp;
 
 	i = 0;
 	*new_line_ptr = NULL;
@@ -27,8 +28,17 @@ static int	check_over(char *over, char **new_line_ptr, char **line)
 	}
 	else
 	{
-		if (!(*line = ft_strdup(over)))
-			return (-1);
+		if (*line == NULL)
+		{
+			if (!(*line = ft_strdup(over)))
+				return (-1);
+		}
+		else
+		{
+			temp = *line;
+			*line = ft_strjoin(temp, over);
+			free_gc(*line);
+		}
 		while (i <= BUFFER_SIZE)
 			over[i++] = '\0';
 	}
