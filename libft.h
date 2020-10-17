@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/01 21:55:09 by mtriston          #+#    #+#             */
-/*   Updated: 2020/10/10 21:45:17 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/17 13:34:32 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -86,6 +86,7 @@ void				memory_manager(void *ptr, int action);
 void				free_gc(void *ptr);
 void				*malloc_gc(size_t size);
 void				*calloc_gc(size_t nmemb, size_t size);
+void				*realloc_gc(void *ptr, size_t size);
 int					get_next_line(int fd, char **line);
 
 #endif

@@ -39,6 +39,7 @@ GC_FILES = 	$(addsuffix .c, $(addprefix $(GC_DIR),\
 			free_gc\
 			malloc_gc\
 			memory_manager\
+			realloc_gc\
 			))
 
 LST_DIR = linked_list/
