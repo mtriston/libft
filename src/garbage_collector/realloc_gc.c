@@ -6,7 +6,7 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/17 13:07:34 by mtriston          #+#    #+#             */
-/*   Updated: 2020/10/17 13:37:17 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/17 13:44:37 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,11 @@ void	*realloc_gc(void *ptr, size_t size)
 	void	*new_ptr;
 
 	if (ptr == NULL)
-		return (malloc_gc(size));
+		return (calloc_gc(size, sizeof(unsigned char)));
 	old_size = sizeof(ptr);
 	if (old_size >= size)
 		return (ptr);
-	new_ptr = malloc_gc(size);
+	new_ptr = calloc_gc(size, sizeof(unsigned char));
 	ft_memcpy(new_ptr, ptr, old_size);
 	free_gc(ptr);
 	return (new_ptr);

@@ -6,16 +6,21 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/10/11 15:10:13 by mtriston          #+#    #+#             */
-/*   Updated: 2020/10/11 15:10:22 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/10/17 13:56:38 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 int     ft_strcmp(const char *s1, const char *s2)
 {
-    while (*s1 && *s1 == *s2)
+    char *str1;
+    char *str2;
+
+    str1 = (char *)s1;
+    str2 = (char *)s2;
+    while (*str1 && *str1 == *str2)
     {
-        s1++;
-        s2++;
+        str1++;
+        str2++;
     }
-    return (*s1 - *s2);
+    return (*str1 - *str2);
 }
