@@ -6,26 +6,31 @@
 /*   By: mtriston <mtriston@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2020/05/16 16:16:14 by mtriston          #+#    #+#             */
-/*   Updated: 2020/10/31 14:52:06 by mtriston         ###   ########.fr       */
+/*   Updated: 2020/11/07 18:26:33 by mtriston         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../../libft.h"
 
+static char	*gnl_strjoin(char **s1, char *s2)
+{
+	char *temp;
+	char *str;
+
+	temp = *s1;
+	str = ft_strjoin(*s1, s2);
+	free_gc(temp);
+	return (str);
+}
+
 static int	check_over(char *over, char **new_line_ptr, char **line)
 {
-	char	*temp;
-
 	*new_line_ptr = NULL;
 	if ((*new_line_ptr = ft_strchr(over, '\n')))
 	{
 		**new_line_ptr = '\0';
 		if (**line)
-		{
-			temp = *line;
-			*line = ft_strjoin(temp, over);
-			free_gc(temp);
-		}
+			*line = gnl_strjoin(line, over);
 		else
 			*line = ft_strdup(over);
 		ft_strcpy(over, ++(*new_line_ptr));
@@ -35,11 +40,7 @@ static int	check_over(char *over, char **new_line_ptr, char **line)
 		if (*line == NULL)
 			*line = ft_strdup(over);
 		else
-		{
-			temp = *line;
-			*line = ft_strjoin(temp, over);
-			free_gc(temp);
-		}
+			*line = gnl_strjoin(line, over);
 		ft_bzero(over, BUFFER_SIZE);
 	}
 	return (1);
