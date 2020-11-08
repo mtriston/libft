@@ -102,6 +102,7 @@ STR_FILES =	$(addsuffix .c, $(addprefix $(STR_DIR),\
 			ft_strtrim\
 			ft_split\
 			ft_strmapi\
+			ft_free_array\
 			))
 
 GNL_DIR = get_next_line/
